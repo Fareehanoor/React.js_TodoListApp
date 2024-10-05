@@ -1,10 +1,11 @@
-import Home from "./Components/Home"
+
+import TodoInput from "./Components/TodoInput"
 
 function App() {
 
   return (
     <>
-     <Home />
+     <TodoInput />
     </>
   )
 }
