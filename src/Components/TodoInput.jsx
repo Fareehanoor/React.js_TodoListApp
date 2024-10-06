@@ -1,22 +1,34 @@
-import { useState } from "react"
+import { useState } from "react";
 
-function TodoInput() {
-    const [inputValue , setInputValue] = useState("");
+function TodoInput({ addButton }) {
+  const [inputValue, setInputValue] = useState("");
 
-    function handleChange(event) {
-        setInputValue(event.target.value);
-    }
+  function handleChange(event) {
+    setInputValue(event.target.value);
+  }
   return (
     <>
-    <div>
-        <h1>Todo List App</h1>
-        <input type="text" placeholder="Enter Your Todos" onChange={handleChange} value={inputValue}/>
-        <button>Add + </button>
-    </div>
-    
+      <h1 className="text-3xl mb-4 text-center mt-2">Todo List App</h1>
+      <div className="flex flex-row gap-2 mx-auto items-center">
+        <input
+          type="text"
+          placeholder="Enter Your Todos"
+          onChange={handleChange}
+          value={inputValue}
+          className="m-3 p-2 border-solid border-2 border-black-600 rounded-sm "
+        />
+        <button
+          className="bg-black text-white w-12 h-12 rounded-full"
+          onClick={() => {
+            addButton(inputValue);
+            setInputValue("");
+          }}
+        >
+          +
+        </button>
+      </div>
     </>
-    
-  )
+  );
 }
 
-export default TodoInput
+export default TodoInput;
